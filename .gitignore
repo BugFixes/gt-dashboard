@@ -4,6 +4,12 @@ dist
 dist-ssr
 *.local
 .env
+.beads/
+.cta.json
+.opencode/
+.runtime/
+.vscode/
+CLAUDE.md
 .nitro
 .tanstack
 .wrangler
