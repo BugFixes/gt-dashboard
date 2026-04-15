@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.986 0.004 258.33);
+  --foreground: oklch(0.23 0.024 264.17);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.024 264.17);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.23 0.024 264.17);
+  --primary: oklch(0.64 0.134 196.55);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.95 0.014 255.51);
+  --secondary-foreground: oklch(0.31 0.027 262.26);
+  --muted: oklch(0.96 0.008 247.86);
+  --muted-foreground: oklch(0.48 0.024 264.38);
+  --accent: oklch(0.93 0.022 198.73);
+  --accent-foreground: oklch(0.28 0.033 224.13);
+  --destructive: oklch(0.62 0.226 25.43);
+  --border: oklch(0.89 0.013 255.51);
+  --input: oklch(0.89 0.013 255.51);
+  --ring: oklch(0.64 0.134 196.55);
+  --radius: 0.9rem;
+}
+
+.dark {
+  --background: oklch(0.16 0.014 265.58);
+  --foreground: oklch(0.97 0.003 264.54);
+  --card: oklch(0.21 0.016 266.13);
+  --card-foreground: oklch(0.97 0.003 264.54);
+  --popover: oklch(0.21 0.016 266.13);
+  --popover-foreground: oklch(0.97 0.003 264.54);
+  --primary: oklch(0.72 0.123 195.11);
+  --primary-foreground: oklch(0.18 0.014 265.84);
+  --secondary: oklch(0.27 0.013 262.42);
+  --secondary-foreground: oklch(0.97 0.003 264.54);
+  --muted: oklch(0.27 0.013 262.42);
+  --muted-foreground: oklch(0.71 0.016 261.32);
+  --accent: oklch(0.3 0.019 200.41);
+  --accent-foreground: oklch(0.97 0.003 264.54);
+  --destructive: oklch(0.69 0.191 23.35);
+  --border: oklch(0.3 0.013 262.42);
+  --input: oklch(0.3 0.013 262.42);
+  --ring: oklch(0.72 0.123 195.11);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top left, color-mix(in oklab, var(--primary) 18%, transparent), transparent 32%),
+      radial-gradient(circle at bottom right, color-mix(in oklab, var(--accent) 32%, transparent), transparent 28%);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  code {
+    @apply rounded bg-muted px-1.5 py-0.5 text-[0.9em];
+  }
+}
